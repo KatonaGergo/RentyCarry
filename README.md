@@ -15,6 +15,7 @@ npm run db:init
 ```
 
 It executes `database.sql` directly from Node.js, so you do not need to type the long MySQL executable path.
+This seeds a larger luxury fleet with multiple cars.
 
 Alternative (manual MySQL shell command):
 

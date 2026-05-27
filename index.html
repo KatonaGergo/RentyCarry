@@ -3,64 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RentyCarry</title>
+  <title>RentyCarry Luxury Drive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="container">
-    <header class="hero">
-      <h1>RentyCarry</h1>
-      <p>Simple car renting platform</p>
+  <div class="background-glow"></div>
+  <main class="site-shell">
+    <header class="topbar">
+      <a href="#" class="brand">RentyCarry</a>
+      <nav class="nav-links">
+        <a href="#fleet">Fleet</a>
+        <a href="#services">Services</a>
+        <a href="#reviews">Reviews</a>
+      </nav>
+      <button class="outline-btn">Sign Up</button>
     </header>
 
-    <section>
-      <h2>Available Cars</h2>
+    <section class="hero">
+      <p class="eyebrow">Premium Chauffeured Experience</p>
+      <h1>Your Ultimate Luxury Drive Awaits</h1>
+      <p class="hero-copy">Rent world-class cars with instant booking, trusted support, and premium comfort in every journey.</p>
+      <div class="search-bar">
+        <div class="search-item">
+          <span>Location</span>
+          <strong>Budapest Airport</strong>
+        </div>
+        <div class="search-item">
+          <span>Pick Up Date</span>
+          <strong>Today</strong>
+        </div>
+        <div class="search-item">
+          <span>Return Date</span>
+          <strong>In 3 days</strong>
+        </div>
+        <button class="gold-btn">Search</button>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <article class="service-card">
+        <h3>Airport Transfers</h3>
+        <p>Private pickup with premium sedans and executive vans.</p>
+      </article>
+      <article class="service-card">
+        <h3>Wedding Drives</h3>
+        <p>Elegant luxury cars for your celebration day.</p>
+      </article>
+      <article class="service-card">
+        <h3>Corporate Mobility</h3>
+        <p>Reliable rentals for teams, events, and roadshows.</p>
+      </article>
+    </section>
+
+    <section class="stats">
+      <article><strong>150+</strong><span>Luxury Cars</span></article>
+      <article><strong>8000+</strong><span>Satisfied Clients</span></article>
+      <article><strong>200+</strong><span>Corporate Partners</span></article>
+      <article><strong>4.9</strong><span>Average Rating</span></article>
+    </section>
+
+    <section class="fleet-section">
+      <div class="section-head">
+        <h2>Featured Collection</h2>
+        <p>Hand-picked premium vehicles</p>
+      </div>
+      <div id="featuredGrid" class="featured-grid"></div>
+    </section>
+
+    <section id="fleet" class="fleet-section">
+      <div class="section-head">
+        <h2>Explore Our Fleet</h2>
+        <p>Choose from a wide range of classes and prices</p>
+      </div>
       <div id="carGrid" class="car-grid"></div>
       <p id="status" class="status"></p>
     </section>
+
+    <section id="reviews" class="reviews">
+      <h2>What Clients Say</h2>
+      <div class="review-grid">
+        <article class="review-card">
+          <p>"Smooth booking and spotless vehicle quality."</p>
+          <span>- Daniel P.</span>
+        </article>
+        <article class="review-card">
+          <p>"Professional support and truly luxury experience."</p>
+          <span>- Sofia K.</span>
+        </article>
+        <article class="review-card">
+          <p>"Best rental option for business travel."</p>
+          <span>- Michael T.</span>
+        </article>
+      </div>
+    </section>
   </main>
 
-  <script>
-    const carGrid = document.getElementById("carGrid");
-    const status = document.getElementById("status");
-
-    function renderCars(cars) {
-      if (!cars.length) {
-        status.textContent = "No cars found in database.";
-        return;
-      }
-
-      const cards = cars.map((car) => `
-        <article class="car-card">
-          <img src="${car.image_url}" alt="${car.brand} ${car.model}" loading="lazy">
-          <div class="car-info">
-            <h3>${car.brand} ${car.model}</h3>
-            <p>${car.year} - ${car.fuel_type} - ${car.seats} seats</p>
-            <strong>$${Number(car.price_per_day).toFixed(0)}/day</strong>
-          </div>
-        </article>
-      `).join("");
-
-      carGrid.innerHTML = cards;
-    }
-
-    async function loadCars() {
-      status.textContent = "Loading cars...";
-      try {
-        const response = await fetch("/api/cars");
-        if (!response.ok) {
-          throw new Error(`Request failed (${response.status})`);
-        }
-        const cars = await response.json();
-        renderCars(cars);
-        status.textContent = "";
-      } catch (error) {
-        status.textContent = "Could not load cars. Check server/database connection.";
-        console.error(error);
-      }
-    }
-
-    loadCars();
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
