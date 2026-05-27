@@ -33,7 +33,7 @@ body {
 .site-shell {
   width: min(1120px, 92vw);
   margin: 1.8rem auto 3rem;
-  padding: 1.4rem;
+  padding: 2.6rem 2.8rem 3rem;
   border: 1px solid var(--line);
   border-radius: 24px;
   background: linear-gradient(145deg, rgba(8, 8, 8, 0.92), rgba(14, 14, 14, 0.86));
@@ -416,6 +416,10 @@ body {
 }
 
 @media (max-width: 900px) {
+  .site-shell {
+    padding: 2rem 1.8rem 2.3rem;
+  }
+
   .hero-content {
     grid-template-columns: 1fr;
   }
@@ -444,7 +448,7 @@ body {
 @media (max-width: 640px) {
   .site-shell {
     width: 95vw;
-    padding: 1rem;
+    padding: 1.4rem;
   }
 
   .topbar {
