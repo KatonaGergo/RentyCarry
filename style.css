@@ -1,0 +1,88 @@
+:root {
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --text: #1d2939;
+  --muted: #667085;
+  --line: #e4e7ec;
+  --accent: #0f766e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f6 100%);
+  color: var(--text);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.hero {
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.hero p {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.car-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+}
+
+.car-card img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.car-info {
+  padding: 0.9rem;
+}
+
+.car-info h3 {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.car-info p {
+  margin: 0.35rem 0 0.55rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.car-info strong {
+  color: var(--accent);
+}
+
+.status {
+  color: #b42318;
+  margin-top: 1rem;
+}
