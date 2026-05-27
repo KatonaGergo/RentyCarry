@@ -12,6 +12,8 @@ CREATE TABLE IF NOT EXISTS cars (
   image_url VARCHAR(255) NOT NULL
 );
 
+TRUNCATE TABLE cars;
+
 INSERT INTO cars (brand, model, year, price_per_day, seats, fuel_type, image_url)
 VALUES
   ('Toyota', 'Corolla', 2022, 42.00, 5, 'Petrol', 'https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=1200&q=80'),
